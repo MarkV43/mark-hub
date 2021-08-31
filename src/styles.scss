@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+
+:root {
+  --color-primary: #3cd8ff;
+  --color-secondary: #26879d;
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --text-selected: #ffffff;
+  --text-active: #666666;
+  --link-normal: #2b80b4;
+  --link-visited: #173391;
+  --bg-primary: #23232e;
+  --bg-secondary: #454549;
+  --lbg-primary: #ffffff;
+  --lbg-secondary: #cccccc;
+  --transition-speed: 300ms;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+  }
+}
+
+a {
+  color: var(--link-normal);
+  &:visited {
+    color: var(--link-visited);
+  }
+}
+
+button.m-button {
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+  border: 1px solid var(--text-primary);
+  border-radius: .3rem;
+  padding: 1em 2em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e2e2e2;
+  }
+
+  &:active {
+    border-color: black;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

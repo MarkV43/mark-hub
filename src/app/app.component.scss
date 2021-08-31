@@ -1,0 +1,115 @@
+.app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
+
+  h1 {
+    display: inline-block;
+    min-width: 11rem;
+    height: min-content;
+    margin: 0 2rem 0 1rem;
+
+    color: var(--text-selected);
+
+    span {
+      color: var(--color-primary);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--text-primary);
+
+    &:hover {
+      color: var(--text-selected);
+
+      h1 {
+        color: var(--text-primary);
+
+        span {
+          color: var(--color-secondary);
+        }
+      }
+    }
+
+    &.active {
+      color: var(--text-active) !important;
+    }
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: center;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        margin-right: 3rem;
+      }
+    }
+
+    .login {
+      display: flex;
+      text-align: right;
+      padding: 0;
+      margin-right: 3rem;
+    }
+
+    .welcome {
+      margin-right: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 3rem;
+        background: var(--lbg-primary);
+        width: 12rem;
+        filter: drop-shadow(1px 2px 3px #00000055);
+        border-radius: .3em;
+        flex-direction: column;
+        overflow: hidden;
+
+        button {
+          border: none;
+          background: inherit;
+          font-family: 'Poppins', sans-serif;
+          cursor: pointer;
+          height: 3em;
+          width: 100%;
+
+          &:hover {
+            filter: drop-shadow(0 0 2px #00000055);
+          }
+        }
+      }
+
+      &:hover .dropdown {
+        display: flex;
+      }
+    }
+  }
+}
+
+#content {
+  margin-top: 3.6rem;
+  flex-grow: 1;
+}

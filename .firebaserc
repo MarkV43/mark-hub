@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "markhub-e75e1": {
+      "hosting": {
+        "mark-hub": [
+          "markhub-e75e1"
+        ]
+      }
+    }
+  }
+}
