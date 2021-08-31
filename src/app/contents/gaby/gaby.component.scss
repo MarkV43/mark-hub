@@ -1,0 +1,96 @@
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+
+  font-size: 0.8em;
+
+  th, td {
+    button {
+      background-color: var(--lbg-primary);
+      outline: none;
+      cursor: pointer;
+      border-radius: 0.3rem;
+      width: 3em;
+      height: 3em;
+      padding: 0;
+      border-width: 2px;
+      border-style: solid;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+
+    &:nth-child(3) {
+      width: 2em;
+
+      button {
+        border-color: #c09817;
+      }
+    }
+
+    &:nth-child(4) {
+      width: 2em;
+
+      button {
+        border-color: #c01717;
+      }
+    }
+  }
+
+  th {
+    letter-spacing: 0.2em;
+    padding: 1em;
+  }
+
+  td {
+    letter-spacing: 0.1em;
+    padding: 0;
+  }
+
+  tbody td {
+    text-align: center;
+  }
+
+  thead {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+
+  tbody tr {
+    &:hover {
+      background-color: var(--lbg-secondary);
+    }
+  }
+}
+
+.form-holder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #00000077;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    width: 30vw;
+  }
+}
+
+.add-punishment {
+  border-radius: 50%;
+  background-color: var(--lbg-primary);
+  border: none;
+  position: fixed;
+  bottom: 3em;
+  right: 3em;
+  filter: drop-shadow(1px 2px 2px #00000044);
+}

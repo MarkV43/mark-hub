@@ -1,0 +1,62 @@
+<p>gaby works!</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Description</th>
+    <th>Difficulty</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pun of punishments | async">
+    <td>{{ pun.description }}</td>
+    <td>{{ pun.difficulty }}</td>
+    <td><button mat-icon-button (click)="editPunishment(pun)"><mat-icon>edit</mat-icon></button></td>
+    <td><button mat-icon-button (click)="deletePunishment(pun.id)"><mat-icon>delete</mat-icon></button></td>
+  </tr>
+  </tbody>
+</table>
+
+<button mat-icon-button class="add-punishment m-button" (click)="addPunishment()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<div class="form-holder" *ngIf="formVisible" (mousedown)="dialogMouseDown($event)" (mouseup)="dialogMouseUp($event)" #formHolder>
+  <mat-card>
+    <mat-card-content>
+      <form (ngSubmit)="addOrEditPunishmentSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input type="text" matInput [formControl]="descriptionFormControl" [(ngModel)]="addEditPunishment.description" name="description" required>
+
+          <mat-error *ngIf="descriptionFormControl.hasError('required')">Description is <b>required</b></mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Difficulty</mat-label>
+          <input type="number" matInput [formControl]="difficultyFormControl" [(ngModel)]="addEditPunishment.difficulty" name="difficulty" required>
+
+          <mat-error *ngIf="difficultyFormControl.hasError('required'); else difficultyElse1">Description is <b>required</b></mat-error>
+          <ng-template #difficultyElse1>
+            <mat-error *ngIf="(difficultyFormControl.hasError('min') || difficultyFormControl.hasError('max'))">
+              Difficulty must be between 0 and 10
+            </mat-error>
+          </ng-template>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Explanation</mat-label>
+          <textarea matInput [(ngModel)]="addEditPunishment.explanation" name="explanation"></textarea>
+        </mat-form-field>
+
+        <mat-checkbox [(ngModel)]="addEditPunishment.afar" name="afar" class="cb-margin">Afar</mat-checkbox>
+
+        <mat-checkbox [(ngModel)]="addEditPunishment.tell" name="tell" class="cb-margin">Tell master</mat-checkbox>
+
+        <button type="submit" mat-stroked-button color="primary" [disabled]="!difficultyFormControl.valid || !descriptionFormControl.valid">Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
