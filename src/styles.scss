@@ -2,29 +2,27 @@
 
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+@font-face {
+  font-family: '3D let';
+  src: url("fonts/3dlet.ttf");
+}
+
+@font-face {
+  font-family: 'Neon Machine';
+  src: url("fonts/Neon machine.ttf");
+}
 
 :root {
-  --color-primary: #3cd8ff;
-  --color-secondary: #26879d;
-  --text-primary: #b6b6b6;
-  --text-secondary: #ececec;
-  --text-selected: #ffffff;
-  --text-active: #666666;
-  --link-normal: #2b80b4;
-  --link-visited: #173391;
-  --bg-primary: #23232e;
-  --bg-secondary: #454549;
-  --lbg-primary: #ffffff;
-  --lbg-secondary: #cccccc;
-  --transition-speed: 300ms;
+  --background-color: #242424;
+  --text-color: white;
+  --color-primary: #2211ff;
 
   font-family: 'Poppins', sans-serif;
 }
 
 body {
-  color: black;
-  background-color: white;
+  color: var(--text-color);
+  background-color: var(--background-color);
   margin: 0;
   padding: 0;
 
@@ -33,7 +31,7 @@ body {
   }
 
   &::-webkit-scrollbar-track {
-    background: #1e1e24;
+    background: #151e23;
   }
 
   &::-webkit-scrollbar-thumb {

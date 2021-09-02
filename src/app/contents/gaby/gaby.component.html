@@ -10,16 +10,20 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let pun of punishments | async">
+  <tr *ngFor="let pun of punishments | async; index as i">
     <td>{{ pun.description }}</td>
     <td>{{ pun.difficulty }}</td>
-    <td><button mat-icon-button (click)="editPunishment(pun)"><mat-icon>edit</mat-icon></button></td>
-    <td><button mat-icon-button (click)="deletePunishment(pun.id)"><mat-icon>delete</mat-icon></button></td>
+    <td><button mat-icon-button (click)="editPunishment(pun)" (mouseenter)="editOver[i] = true" (mouseleave)="editOver[i] = false">
+      <mat-icon [ngClass]="{'material-icons-outlined': !editOver[i]}">edit</mat-icon>
+    </button></td>
+    <td><button mat-icon-button (click)="deletePunishment(pun.id)" (mouseenter)="deleteOver[i] = true" (mouseleave)="deleteOver[i] = false">
+      <mat-icon [ngClass]="{'material-icons-outlined': !deleteOver[i]}">delete</mat-icon>
+    </button></td>
   </tr>
   </tbody>
 </table>
 
-<button mat-icon-button class="add-punishment m-button" (click)="addPunishment()">
+<button mat-fab color="primary" aria-label="Add new punishment" class="add-punishment" (click)="addPunishment()">
   <mat-icon>add</mat-icon>
 </button>
 

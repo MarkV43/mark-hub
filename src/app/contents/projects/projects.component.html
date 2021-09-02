@@ -1,0 +1,11 @@
+
+<div class="content">
+
+  <mat-card *ngFor="let proj of projects$ | async" (click)="goToProject(proj.path)">
+    <mat-card-title>{{ proj.name }}</mat-card-title>
+    <mat-card-content>
+      {{proj.description}}
+    </mat-card-content>
+  </mat-card>
+
+</div>

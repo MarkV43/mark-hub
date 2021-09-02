@@ -5,54 +5,51 @@
 }
 
 .top-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--background-color);
   display: flex;
   align-items: center;
-  //justify-content: space-between;
+  justify-content: space-between;
+  filter: drop-shadow(0px 5px 10px #00000055);
 
-  h1 {
-    display: inline-block;
-    min-width: 11rem;
-    height: min-content;
-    margin: 0 2rem 0 1rem;
+  a.title {
+    padding-top: 0.4rem;
+    margin: 1rem 0 0 1rem;
 
-    color: var(--text-selected);
+    h1 {
+      font-family: '3D let', sans-serif;
+      font-size: 5rem;
+      display: inline-block;
+      min-width: min-content;
+      height: min-content;
+      font-variant-caps: small-caps;
+      color: white;
 
-    span {
-      color: var(--color-primary);
+      span {
+        position: relative;
+        font-family: 'Neon Machine', sans-serif;
+        font-size: 2rem;
+        bottom: 0.5rem;
+      }
     }
   }
 
   a {
     text-decoration: none;
-    color: var(--text-primary);
+    color: white;
 
     &:hover {
-      color: var(--text-selected);
-
-      h1 {
-        color: var(--text-primary);
-
-        span {
-          color: var(--color-secondary);
-        }
-      }
+      text-decoration: underline var(--color-primary);
     }
 
     &.active {
-      color: var(--text-active) !important;
+      color: grey;
     }
   }
 
   nav {
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: space-between;
-    flex-grow: 1;
     align-items: center;
 
     ul {
@@ -64,52 +61,14 @@
         margin-right: 3rem;
       }
     }
-
-    .login {
-      display: flex;
-      text-align: right;
-      padding: 0;
-      margin-right: 3rem;
-    }
-
-    .welcome {
-      margin-right: 3rem;
-      height: 3rem;
-      line-height: 3rem;
-
-      .dropdown {
-        display: none;
-        position: absolute;
-        top: 3rem;
-        background: var(--lbg-primary);
-        width: 12rem;
-        filter: drop-shadow(1px 2px 3px #00000055);
-        border-radius: .3em;
-        flex-direction: column;
-        overflow: hidden;
-
-        button {
-          border: none;
-          background: inherit;
-          font-family: 'Poppins', sans-serif;
-          cursor: pointer;
-          height: 3em;
-          width: 100%;
-
-          &:hover {
-            filter: drop-shadow(0 0 2px #00000055);
-          }
-        }
-      }
-
-      &:hover .dropdown {
-        display: flex;
-      }
-    }
   }
 }
 
 #content {
   margin-top: 3.6rem;
   flex-grow: 1;
+}
+
+@media only screen and (min-width: 750px) {
+
 }

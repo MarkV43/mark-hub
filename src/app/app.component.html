@@ -1,35 +1,22 @@
 <div class="app-root">
-  <div class="top-bar">
-    <a routerLink="/" routerLinkActive="active">
-      <h1>Mark<span>Hub</span></h1>
+
+  <mat-toolbar class="top-bar" color="primary">
+    <a class="title" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <h1>V<span>43</span></h1>
     </a>
 
     <nav>
       <ul>
-        <!--      <li><a routerLink="/" routerLinkActive="active">Hub</a></li>-->
-        <li><a routerLink="/programs" routerLinkActive="active">Programs</a></li>
-        <li><a routerLink="/gaby" routerLinkActive="active">Gaby</a></li>
+        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+        <li><a routerLink="/skills" routerLinkActive="active">Skills</a></li>
+        <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        <li *ngIf="false"><a routerLink="/gaby" routerLinkActive="active">Gaby</a></li>
       </ul>
-
-      <div class="welcome" *ngIf="auth.user$ && auth.user$ | async as user; else login">
-        Welcome, {{user.displayName}}
-        <div class="dropdown">
-          <button>Profile</button>
-          <button>Preferences</button>
-          <button (click)="auth.signOut()">Sign Out</button>
-        </div>
-      </div>
-      <ng-template #login>
-        <a class="login" routerLink="/login" routerLinkActive="active">Login</a>
-      </ng-template>
     </nav>
-  </div>
-
+  </mat-toolbar>
 
   <div id="content">
     <router-outlet></router-outlet>
   </div>
 </div>
-
-
-<router-outlet></router-outlet>

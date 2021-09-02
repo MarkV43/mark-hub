@@ -18,6 +18,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { ProjectsComponent } from './contents/projects/projects.component';
+import { HangmanComponent } from './contents/projects/hangman/hangman.component';
 
 @NgModule({
   declarations: [
@@ -25,27 +29,36 @@ import {MatInputModule} from "@angular/material/input";
     LoginComponent,
     MainComponent,
     PageNotFoundComponent,
-    GabyComponent
+    GabyComponent,
+    ProjectsComponent,
+    HangmanComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => {
-      const firestore = getFirestore();
-      enableIndexedDbPersistence(firestore);
-      return firestore;
-    }),
-    provideAuth(() => getAuth()),
-    FormsModule,
-    MatIconModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatInputModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideFirestore(() => {
+            const firestore = getFirestore();
+            enableIndexedDbPersistence(firestore);
+            return firestore;
+        }),
+        provideAuth(() => getAuth()),
+        FormsModule,
+        MatIconModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatCheckboxModule,
+        MatCardModule,
+        MatInputModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the app is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000'
+        }),
+        MatToolbarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

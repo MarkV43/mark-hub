@@ -6,6 +6,8 @@ table {
 
   font-size: 0.8em;
 
+  margin-bottom: calc(56px + 4.5em);
+
   th, td {
     button {
       background-color: var(--lbg-primary);
@@ -67,7 +69,7 @@ table {
 }
 
 .form-holder {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -86,11 +88,7 @@ table {
 }
 
 .add-punishment {
-  border-radius: 50%;
-  background-color: var(--lbg-primary);
-  border: none;
   position: fixed;
   bottom: 3em;
   right: 3em;
-  filter: drop-shadow(1px 2px 2px #00000044);
 }

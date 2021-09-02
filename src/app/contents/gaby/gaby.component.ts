@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {collection, collectionSnapshots, deleteDoc, doc, Firestore, setDoc} from "@angular/fire/firestore";
-import {Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 import {debounceTime, map} from "rxjs/operators";
 import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
@@ -31,10 +31,12 @@ const defaultPunishment = { id: '', description: '', difficulty: 0, explanation:
 export class GabyComponent implements OnInit {
 
   @ViewChild('formHolder') formHolder?: ElementRef;
-  punishments: Observable<Punishment[]> = of([]);
+  punishments: Observable<Punishment[]>;
   seed: string = '';
   formVisible: boolean = false;
   addEditPunishment = {...defaultPunishment} as Punishment;
+  editOver: boolean[] = [];
+  deleteOver: boolean[] = [];
 
   descriptionFormControl = new FormControl('', [
     Validators.required
@@ -49,13 +51,11 @@ export class GabyComponent implements OnInit {
   constructor(
     private afs: Firestore
   ) {
-    /*this.punishments = */collectionSnapshots(collection(this.afs, 'punishments')).pipe(
+    this.punishments = collectionSnapshots(collection(this.afs, 'punishments')).pipe(
       debounceTime(150),
       map(actions =>
         actions.map(act => {
-          console.log({act});
-          return null
-          // return {id: act.payload.doc.id, ...act.payload.doc.data()} as Punishment;
+          return {id: act.id, ...act.data()} as Punishment;
         })
       )
     );
@@ -67,7 +67,7 @@ export class GabyComponent implements OnInit {
   }
 
   editPunishment(pun: Punishment) {
-    this.addEditPunishment = pun;
+    this.addEditPunishment = {...pun} as Punishment;
     this.formVisible = true;
   }
 
