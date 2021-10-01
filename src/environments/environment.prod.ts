@@ -8,5 +8,6 @@ export const environment = {
     messagingSenderId: "477057600122",
     appId: "1:477057600122:web:99c3cba482c587ca7bc9c3",
     measurementId: "G-RNX0R4BFXX"
-  }
+  },
+  wasmAssetsPath: '/assets/wasm'
 };
