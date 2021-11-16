@@ -23,6 +23,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {ProjectsComponent} from './contents/projects/projects.component';
 import {HangmanComponent} from './contents/projects/hangman/hangman.component';
 import {getStorage, provideStorage} from "@angular/fire/storage";
+import { SkillsComponent } from './contents/skills/skills.component';
+import { AboutComponent } from './contents/about/about.component';
+import { FabrikDemonstrationComponent } from './contents/projects/fabrik-demonstration/fabrik-demonstration.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import {getStorage, provideStorage} from "@angular/fire/storage";
     PageNotFoundComponent,
     GabyComponent,
     ProjectsComponent,
-    HangmanComponent
+    HangmanComponent,
+    SkillsComponent,
+    AboutComponent,
+    FabrikDemonstrationComponent
   ],
   imports: [
     BrowserModule,

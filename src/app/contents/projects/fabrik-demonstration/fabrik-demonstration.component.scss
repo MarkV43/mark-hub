@@ -1,0 +1,13 @@
+.scene {
+  height: 99%;
+  width: 100%;
+
+  canvas {
+    height: calc(100vh - 70px);
+    width: 100vw;
+    //width: 600px;
+    //height: 400px;
+    //box-sizing: border-box;
+    //border: solid 1px black;
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {collection, collectionData, Firestore} from "@angular/fire/firestore";
+import {collection, collectionData, Firestore, query, where} from "@angular/fire/firestore";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 
@@ -17,7 +17,8 @@ export class ProjectsComponent implements OnInit {
     private router: Router
   ) {
     const collectionRef = collection(this.afs, 'projects');
-    this.projects$ = collectionData(collectionRef);
+    const q = query(collectionRef, where("public", "==", true));
+    this.projects$ = collectionData(q);
   }
 
   ngOnInit(): void {}

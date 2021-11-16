@@ -1,0 +1,130 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-flow: dense;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  > * {
+    margin: 1rem;
+  }
+}
+
+@media (min-width: calc(300px * 4)) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: calc(300px * 3 - 1px)) {
+  .hologram {
+    grid-row: 3 / span 3 !important;
+  }
+}
+
+.about-me, .personal-details, .hobbies, .languages {
+  grid-column: auto / span 1;
+}
+
+.hologram {
+  grid-column: auto / span 2;
+  grid-row: auto / span 3;
+  height: 80vh;
+}
+
+.hologram-container {
+  padding-top: 5vh;
+  max-height: 80vh;
+  display: flex;
+  //justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: translateY(5vh);
+}
+
+.silhouette {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 70vh;
+
+  svg {
+    --hologram-color: aqua;
+    height: inherit;
+    filter: drop-shadow(0 0 0.5rem var(--hologram-color));
+
+    .cls-1 {
+      fill: aqua;
+    }
+
+    .cls-2, .cls-3 {
+      fill: none;
+      stroke: red;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cls-2 {
+      stroke-width: 1.5px;
+    }
+  }
+}
+
+.proj-3d {
+  perspective: 360vh;
+  perspective-origin: center 12vh;
+  text-align: center;
+  //overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+
+  svg {
+    height: 120rem;
+    aspect-ratio: 1;
+    --hologram-color: aqua;
+    transform-origin: 50% 50%;
+    transform: translateY(calc(70vh - 40vh)) scale(0.8) rotateX(90deg);
+    filter: drop-shadow(0 0 3rem var(--hologram-color));
+
+    circle {
+      opacity: 0.4;
+      fill: transparent;
+      stroke: var(--hologram-color);
+      stroke-width: 30;
+      transform-origin: 50% 50%;
+      stroke-dasharray: calc(3.1415 * 2 * var(--radius) / var(--n-segs) - var(--spacing)), var(--spacing);
+
+      &.circle1 {
+        --spacing: 20;
+        --radius: 50;
+        --n-segs: 5;
+      }
+
+      &.circle2 {
+        --spacing: 10;
+        --radius: 20;
+        --n-segs: 4;
+      }
+    }
+
+    .rot-slow {
+      animation: rotate360 20s linear 2s infinite normal;
+    }
+
+    .rot-med {
+      animation: rotate360 10s linear 2s infinite reverse;
+    }
+  }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

@@ -4,6 +4,15 @@
   height: 100vh;
 }
 
+@keyframes logo-animation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-155px);
+  }
+}
+
 .top-bar {
   background-color: var(--background-color);
   display: flex;
@@ -15,20 +24,13 @@
     padding-top: 0.4rem;
     margin: 1rem 0 0 1rem;
 
-    h1 {
-      font-family: '3D let', sans-serif;
-      font-size: 5rem;
-      display: inline-block;
-      min-width: min-content;
-      height: min-content;
-      font-variant-caps: small-caps;
-      color: white;
+    svg {
+      width: auto;
+      height: 2.5rem;
+      margin-top: -0.6em;
 
-      span {
-        position: relative;
-        font-family: 'Neon Machine', sans-serif;
-        font-size: 2rem;
-        bottom: 0.5rem;
+      #SVGID_1_ {
+        animation: logo-animation 2s linear 1s 1 forwards;
       }
     }
   }
@@ -65,7 +67,7 @@
 }
 
 #content {
-  margin-top: 3.6rem;
+  //margin-top: 3.6rem;
   flex-grow: 1;
 }
 
