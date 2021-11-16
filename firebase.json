@@ -26,10 +26,10 @@
     }
   ],
   "firestore": {
-    "rules": "fire/firestore.rules",
-    "indexes": "fire/firestore.indexes.json"
+    "rules": ".firebase/firestore.rules",
+    "indexes": ".firebase/firestore.indexes.json"
   },
   "storage": {
-    "rules": "fire/storage.rules"
+    "rules": ".firebase/storage.rules"
   }
 }

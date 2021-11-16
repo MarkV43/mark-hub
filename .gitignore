@@ -45,4 +45,4 @@ testem.log
 Thumbs.db
 
 # Security Files
-/fire
+/.firebase
